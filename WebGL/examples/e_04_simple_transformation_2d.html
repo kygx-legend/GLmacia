@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <meta charset="utf8" />
+  <title>webgl</title>
+ </head>
+ <body onload="main()">
+  <div>
+   <canvas id="webgl" width="600" height="600"></canvas>
+   <form>
+    translation:<br>
+    X<input id="translationX" type="range" name="points" min="0" max="80" defaultValue="40">
+    Y<input id="translationY" type="range" name="points" min="0" max="60" defaultValue="40">
+    <input id="drawTranslation" type="button" value="Translate"><br>
+    scale:<br>
+    X<input id="scaleX" type="range" name="points" min="1" max="10">
+    Y<input id="scaleY" type="range" name="points" min="1" max="10">
+    <input id="drawScale" type="button" value="Scale"><br>
+    rotate:<br>
+    Angle(-180~180)<input id="rotateAngle" type="number" name="points" min="-180" max="180" defaultValue="0" value="0">
+    <input id="drawRotate" type="button" value="Rotate"><br>
+    reset:<br>
+    <input id="drawReset" type="button" value="Reset">
+   </form> 
+  </div>
+  <script type="text/javascript" src="../js/tool.js"></script>
+  <script type="text/javascript" src="../js/e_04_simple_transformation_2d.js"></script>
+ </body>
+</html>
