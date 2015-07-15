@@ -1,1 +1,13 @@
+# Temporary files
 *.swp
+
+# Makefiles
+Makefile
+*.Makefile
+*.mk
+
+# Ninja
+*.ninja
+
+# Built files
+OpenGL/out
