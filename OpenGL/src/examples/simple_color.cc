@@ -29,9 +29,9 @@ int main(int argc, char** argv) {
   int uniform = render.program_manager.getLocation(program, 1, "u_color");
   render.buffer_manager.createBuffer(buffer);
   render.buffer_manager.bindBuffer(buffer, GL_ARRAY_BUFFER);
+  render.buffer_manager.setBufferData(buffer, 6 * sizeof(float), points, GL_DYNAMIC_DRAW);
   glVertexAttribPointer(attrib, 2, GL_FLOAT, GL_FALSE, 0, 0);
   glEnableVertexAttribArray(attrib);
-  render.buffer_manager.setBufferData(buffer, 6 * sizeof(float), points, GL_DYNAMIC_DRAW);
   glUniform4f(uniform, 1, 0, 0, 1);
 
   render.setRenerderFunction(renderFunction);

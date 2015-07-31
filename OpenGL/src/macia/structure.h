@@ -21,4 +21,10 @@ struct TupleInt2D {
   }
 };
 
+struct ImageData {
+  unsigned char* pixels;
+  long width;
+  long height;
+};
+
 #endif

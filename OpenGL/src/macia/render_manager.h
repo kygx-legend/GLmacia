@@ -8,6 +8,7 @@
 #include "structure.h"
 #include "program_manager.h"
 #include "buffer_manager.h"
+#include "texture_manager.h"
 
 using namespace std;
 
@@ -26,6 +27,7 @@ class RenderManager {
 
   ProgramManager program_manager;
   BufferManager buffer_manager;
+  TextureManager texture_manager;
 
  private:
   ContextVersion m_context_version;

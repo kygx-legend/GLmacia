@@ -9,6 +9,7 @@ RenderManager::RenderManager()
     m_window_title("") {
   program_manager = ProgramManager(5);
   buffer_manager = BufferManager(5);
+  texture_manager = TextureManager(5);
 }
 
 RenderManager::RenderManager(string title)
@@ -19,6 +20,7 @@ RenderManager::RenderManager(string title)
     m_window_title(title) {
   program_manager = ProgramManager(5);
   buffer_manager = BufferManager(5);
+  texture_manager = TextureManager(5);
 }
 
 RenderManager::~RenderManager() {

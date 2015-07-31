@@ -14,6 +14,8 @@
       'type': 'none',
       'dependencies': [
         'clear_render',
+        'simple_color',
+        'simple_texture',
       ],
       'cflags': [
         '-g',
@@ -51,6 +53,27 @@
       ],
       'sources': [
         '<(DEPTH)/src/examples/simple_color.cc',
+      ],
+      'include_dirs': [
+        '<(DEPTH)/src',
+      ],
+      'link_settings': {
+        'libraries': [
+          '<@(gl_link_libraries)',
+        ],
+      },
+      'cflags': [
+        '-g',
+      ],
+    },
+    {
+      'target_name': 'simple_texture',
+      'type': 'executable',
+      'dependencies': [
+        '<(DEPTH)/src/macia/macia.gyp:macia',
+      ],
+      'sources': [
+        '<(DEPTH)/src/examples/simple_texture.cc',
       ],
       'include_dirs': [
         '<(DEPTH)/src',

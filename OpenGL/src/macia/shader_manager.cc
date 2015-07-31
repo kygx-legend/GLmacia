@@ -57,7 +57,7 @@ bool ShaderManager::loadShaderDirectly(string content, GLenum type) {
 
 bool ShaderManager::loadShaderWithFile(string file_path, GLenum type) {
   string content = "";
-  if (!ReadFile(content, SHADER_PATH + "/" + file_path))
+  if (!ReadShaderFile(content, kShaderPath + "/" + file_path))
     return false;
   return loadShaderDirectly(content, type);
 }
