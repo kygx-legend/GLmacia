@@ -7,10 +7,10 @@ fi
 
 if [ $# -gt 0 ]; then
     if [ "$1" = "debug" ]; then
-        gyp --depth=. -fninja -dall ./src/all.gyp
+        gyp --depth=. -fninja -dall ./all.gyp
     fi
 else
-    gyp --depth=. -fninja ./src/all.gyp
+    gyp --depth=. -fninja ./all.gyp
 fi
 
 ninja -C ./out/Default
