@@ -14,7 +14,7 @@ class Texture {
 
   GLuint id;
   GLenum type;
-  int number;
+  GLuint unit;
 };
 
 #endif

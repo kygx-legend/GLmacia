@@ -5,19 +5,18 @@
 
 
 const string kDebugTag = "[Texture] ";
-static int sTextureNumber = 0;
+static GLuint sTextureUnit = 0;
 
 Texture::Texture()
   : id(-1),
     type(-1),
-    number(sTextureNumber++) {
+    unit(sTextureUnit++) {
 }
 
 Texture::Texture(GLenum t)
-  : type(t) {
+  : type(t),
+    unit(sTextureUnit++) {
   glGenTextures(1, &id);
-  number = sTextureNumber++;
-  cout << kDebugTag << number<< endl;
 }
 
 Texture::~Texture() {
@@ -39,6 +38,6 @@ void Texture::setupWithImage(string file) {
 }
 
 void Texture::active() {
-  glActiveTexture(GL_TEXTURE0 + number);
+  glActiveTexture(GL_TEXTURE0 + unit);
   glBindTexture(type, id);
 }

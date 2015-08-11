@@ -54,7 +54,7 @@ int main(int argc, char** argv) {
   Texture texture(GL_TEXTURE_2D);
   texture.setupWithImage("e_05_simple_texture_r_02.jpg");
   texture.active();
-  glUniform1i(sampler, texture.number);
+  glUniform1i(sampler, texture.unit);
 
   fw.runMainLoop(renderFunction);
   return 0;
