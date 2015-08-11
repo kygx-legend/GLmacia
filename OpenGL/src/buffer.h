@@ -3,6 +3,7 @@
 
 #include "base/import.h"
 
+
 class Buffer {
  public:
   explicit Buffer();

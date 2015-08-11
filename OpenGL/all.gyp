@@ -47,5 +47,21 @@
         '-g',
       ],
     },
+    {
+      'target_name': 'simple_texture',
+      'type': 'executable',
+      'dependencies': [
+        '<(current_dir)/src/macia.gyp:macia',
+      ],
+      'sources': [
+        '<(current_dir)/examples/simple_texture.cc',
+      ],
+      'include_dirs': [
+        '<(current_dir)',
+      ],
+      'cflags': [
+        '-g',
+      ],
+    },
   ],
 }

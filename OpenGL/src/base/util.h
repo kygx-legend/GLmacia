@@ -2,6 +2,9 @@
 #define UTIL_H
 
 #include "import.h"
+#include "structure.h"
+
+#include <SOIL/SOIL.h>
 
 
 const string kImagePath = "/home/legend/myfile/GLmacia/resources/img";
@@ -37,6 +40,11 @@ static bool ReadShaderFile(string& content, string file_path) {
   }
   in_file.close();
   return true;
+}
+
+static bool ReadImageFile(ImageData& image, string file) {
+  image.pixels = SOIL_load_image(file.c_str(), &image.width, &image.height, 0, SOIL_LOAD_RGB);
+  return image.pixels != NULL;
 }
 
 #endif

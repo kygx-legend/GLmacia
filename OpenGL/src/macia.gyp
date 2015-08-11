@@ -7,6 +7,8 @@
       'shader.cc',
       'program.h',
       'program.cc',
+      'texture.h',
+      'texture.cc',
       'fw.h',
       'fw.cc',
       'ut.h',
@@ -15,6 +17,7 @@
     'depended_libraries': [
       '<!@(pkg-config --static --libs glfw3)',
       '<!@(pkg-config --static --libs glew)',
+      '-lSOIL',
       '-lglut',
      ],
   },

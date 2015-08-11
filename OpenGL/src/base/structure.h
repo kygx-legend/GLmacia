@@ -1,6 +1,7 @@
 #ifndef STRUCTURE_H
 #define STRUCTURE_H
 
+
 struct ContextVersion {
   int major;
   int minor;
@@ -17,6 +18,12 @@ struct Dimension2D {
     : width(a),
       height(b) {
   }
+};
+
+struct ImageData {
+  unsigned char* pixels;
+  int width;
+  int height;
 };
 
 #endif
