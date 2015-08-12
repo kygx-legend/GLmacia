@@ -8,9 +8,12 @@ fi
 if [ $# -gt 0 ]; then
     if [ "$1" = "debug" ]; then
         gyp --depth=. -fninja -dall ./all.gyp
+        ninja -C ./out/Default
+    fi
+    if [ "$1" = "make" ]; then
+        gyp --depth=. ./all.gyp
     fi
 else
     gyp --depth=. -fninja ./all.gyp
+    ninja -C ./out/Default
 fi
-
-ninja -C ./out/Default

@@ -7,6 +7,8 @@
       'shader.cc',
       'program.h',
       'program.cc',
+      'sampler.h',
+      'sampler.cc',
       'texture.h',
       'texture.cc',
       'fw.h',

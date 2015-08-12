@@ -17,11 +17,6 @@ Buffer::~Buffer() {
 }
 
 bool Buffer::setupWithData(GLvoid* data, GLsizeiptr length, GLenum usage) {
-  if (id < 0) {
-    cout << kDebugTag << "Buffer is not set up!" << endl;
-    return false;
-  }
-
   glBindBuffer(type, id);
   glBufferData(type, length, data, usage);
   return true;

@@ -2,19 +2,20 @@
 #define TEXTURE_H
 
 #include "base/import.h"
+#include "sampler.h"
 
 
 class Texture {
  public:
   explicit Texture();
-  explicit Texture(GLenum);
+  explicit Texture(GLenum, string);
   virtual ~Texture();
-  void setupWithImage(string);
   void active();
 
   GLuint id;
   GLenum type;
   GLuint unit;
+  Sampler sampler;
 };
 
 #endif

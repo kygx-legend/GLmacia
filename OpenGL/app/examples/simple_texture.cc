@@ -5,10 +5,10 @@
 
 
 GLfloat data[] = {
-    -0.3, 0.3, 0.0, 1.0,
-    -0.3, -0.3, 0.0, 0.0,
-    0.3, 0.3, 1.0, 1.0,
-    0.3, -0.3, 1.0, 0.0
+    -0.5, 0.5, 0.0, 1.0,
+    -0.5, -0.5, 0.0, 0.0,
+    0.5, 0.5, 1.0, 1.0,
+    0.5, -0.5, 1.0, 0.0
 };
 
 void keyCallback(GLFWwindow* window, int key, int scancode, int action, int mods) {
@@ -51,8 +51,7 @@ int main(int argc, char** argv) {
   glEnableVertexAttribArray(texcoord);
 
   int sampler = glGetUniformLocation(program.id, "uSampler");
-  Texture texture(GL_TEXTURE_2D);
-  texture.setupWithImage("e_05_simple_texture_r_02.jpg");
+  Texture texture(GL_TEXTURE_2D, "e_05_simple_texture_r_01.jpg");
   texture.active();
   glUniform1i(sampler, texture.unit);
 

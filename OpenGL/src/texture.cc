@@ -13,28 +13,23 @@ Texture::Texture()
     unit(sTextureUnit++) {
 }
 
-Texture::Texture(GLenum t)
+Texture::Texture(GLenum t, string file)
   : type(t),
     unit(sTextureUnit++) {
-  glGenTextures(1, &id);
-}
-
-Texture::~Texture() {
-}
-
-void Texture::setupWithImage(string file) {
   ImageData image;
   if (!ReadImageFile(image, kImagePath + "/" + file)) {
     cout << kDebugTag << "Failed to load image " << file << endl;
     return;
   }
 
+  glGenTextures(1, &id);
   glBindTexture(type, id);
-  glTexParameteri(type, GL_TEXTURE_WRAP_S, GL_REPEAT);
-  glTexParameteri(type, GL_TEXTURE_WRAP_T, GL_REPEAT);
-  glTexParameteri(type, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
-  glTexParameteri(type, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
-  glTexImage2D(type, 0, GL_RGB, image.width, image.height, 0, GL_RGB, GL_UNSIGNED_BYTE, image.pixels);
+  sampler = Sampler(unit);
+  glTexImage2D(type, 0, GL_RGB, image.width, image.height, 0, GL_RGB,
+               GL_UNSIGNED_BYTE, image.pixels);
+}
+
+Texture::~Texture() {
 }
 
 void Texture::active() {
