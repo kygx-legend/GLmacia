@@ -9,13 +9,16 @@ Sampler::Sampler()
 
 Sampler::Sampler(GLuint texture_unit) {
   glGenSamplers(1, &id);
-  glSamplerParameteri(id, GL_TEXTURE_WRAP_S, GL_REPEAT);
-  glSamplerParameteri(id, GL_TEXTURE_WRAP_T, GL_REPEAT);
-  glSamplerParameteri(id, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
-  glSamplerParameteri(id, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
-  glSamplerParameteri(id, GL_TEXTURE_MAX_ANISOTROPY_EXT, 16.0f);
   glBindSampler(texture_unit, id);
 }
 
 Sampler::~Sampler() {
+}
+
+void Sampler::setParameteri(GLenum pname, GLint param) {
+  glSamplerParameteri(id, pname, param);
+}
+
+void Sampler::setParameterf(GLenum pname, GLfloat param) {
+  glSamplerParameterf(id, pname, param);
 }

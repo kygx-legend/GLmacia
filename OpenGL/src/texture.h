@@ -10,7 +10,7 @@ class Texture {
   explicit Texture();
   explicit Texture(GLenum, string);
   virtual ~Texture();
-  void active();
+  void active(GLint);
 
   GLuint id;
   GLenum type;

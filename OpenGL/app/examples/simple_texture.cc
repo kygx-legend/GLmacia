@@ -50,10 +50,14 @@ int main(int argc, char** argv) {
   glVertexAttribPointer(texcoord, 2, GL_FLOAT, GL_FALSE, sizeof(float) * 4, (const GLvoid*)(sizeof(float) * 2));
   glEnableVertexAttribArray(texcoord);
 
-  int sampler = glGetUniformLocation(program.id, "uSampler");
+  int uSampler = glGetUniformLocation(program.id, "uSampler");
   Texture texture(GL_TEXTURE_2D, "e_05_simple_texture_r_01.jpg");
-  texture.active();
-  glUniform1i(sampler, texture.unit);
+  texture.sampler.setParameteri(GL_TEXTURE_WRAP_S, GL_REPEAT);
+  texture.sampler.setParameteri(GL_TEXTURE_WRAP_T, GL_REPEAT);
+  texture.sampler.setParameteri(GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+  texture.sampler.setParameteri(GL_TEXTURE_MIN_FILTER, GL_LINEAR);
+  texture.sampler.setParameterf(GL_TEXTURE_MAX_ANISOTROPY_EXT, 16.0f);
+  texture.active(uSampler);
 
   fw.runMainLoop(renderFunction);
   return 0;

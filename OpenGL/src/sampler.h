@@ -10,6 +10,9 @@ class Sampler {
   explicit Sampler(GLuint);
   virtual ~Sampler();
 
+  void setParameteri(GLenum, GLint);
+  void setParameterf(GLenum, GLfloat);
+
   GLuint id;
 };
 

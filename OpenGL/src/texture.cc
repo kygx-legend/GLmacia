@@ -24,15 +24,16 @@ Texture::Texture(GLenum t, string file)
 
   glGenTextures(1, &id);
   glBindTexture(type, id);
-  sampler = Sampler(unit);
   glTexImage2D(type, 0, GL_RGB, image.width, image.height, 0, GL_RGB,
                GL_UNSIGNED_BYTE, image.pixels);
+  sampler = Sampler(unit);
 }
 
 Texture::~Texture() {
 }
 
-void Texture::active() {
+void Texture::active(GLint uniform_sampler) {
   glActiveTexture(GL_TEXTURE0 + unit);
   glBindTexture(type, id);
+  glUniform1i(uniform_sampler, unit);
 }
