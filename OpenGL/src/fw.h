@@ -29,6 +29,8 @@ class FW {
   void setup();
   void runMainLoop(VoidFunction);
 
+  double getTime() const;
+
  protected:
   void tearDown();
   bool isInitialized() const {

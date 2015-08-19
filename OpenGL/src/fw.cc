@@ -18,6 +18,7 @@ FW::FW()
     m_window_size(kWindowSizeDefault),
     m_window_title(""),
     m_window(NULL) {
+  setup();
 }
 
 FW::FW(string title)
@@ -28,6 +29,7 @@ FW::FW(string title)
     m_window_size(kWindowSizeDefault),
     m_window_title(title),
     m_window(NULL) {
+  setup();
 }
 
 void FW::setContextVersion(int major, int minor) {
@@ -112,6 +114,10 @@ void FW::runMainLoop(VoidFunction render) {
     render();
     glfwSwapBuffers(m_window);
   }
+}
+
+double FW::getTime() const {
+  return glfwGetTime();
 }
 
 FW::~FW() {

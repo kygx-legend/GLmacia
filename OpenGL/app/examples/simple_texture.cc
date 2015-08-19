@@ -4,6 +4,9 @@
 #include "src/texture.h"
 
 
+Program program;
+Texture texture;
+
 GLfloat data[] = {
     -0.5, 0.5, 0.0, 1.0,
     -0.5, -0.5, 0.0, 0.0,
@@ -31,10 +34,8 @@ void renderFunction() {
 
 int main(int argc, char** argv) {
   FW fw("Texture Sample");
-  fw.setup();
   fw.setKeyCallback(keyCallback);
 
-  Program program;
   program.loadShaderFromFile("simple_texture.vert");
   program.loadShaderFromFile("simple_texture.frag");
   program.setup();
@@ -51,7 +52,7 @@ int main(int argc, char** argv) {
   glEnableVertexAttribArray(texcoord);
 
   int uSampler = glGetUniformLocation(program.id, "uSampler");
-  Texture texture(GL_TEXTURE_2D, "e_05_simple_texture_r_01.jpg");
+  texture = Texture(GL_TEXTURE_2D, "e_05_simple_texture_r_01.jpg");
   texture.sampler.setParameteri(GL_TEXTURE_WRAP_S, GL_REPEAT);
   texture.sampler.setParameteri(GL_TEXTURE_WRAP_T, GL_REPEAT);
   texture.sampler.setParameteri(GL_TEXTURE_MAG_FILTER, GL_LINEAR);

@@ -24,7 +24,6 @@ void renderFunction() {
 
 int main(int argc, char** argv) {
   FW fw("Basic Sample");
-  fw.setup();
   fw.setKeyCallback(keyCallback);
 
   Program program;

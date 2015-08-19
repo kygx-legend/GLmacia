@@ -7,8 +7,8 @@ const int kLogCharSize = 512;
 const string kDebugTag = "[Program] ";
 
 Program::Program()
-  : m_is_setup(false) {
-  id = glCreateProgram();
+  : m_is_setup(false),
+    id(-1) {
 }
 
 Program::~Program() {
@@ -43,6 +43,8 @@ bool Program::setup() {
     cout << kDebugTag << "No shaders in program!" << endl;
     return false;
   }
+
+  id = glCreateProgram();
 
   for (int i = 0; i < shaders.size(); ++i)
     glAttachShader(id, shaders[i].id);
