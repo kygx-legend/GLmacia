@@ -10,12 +10,12 @@ class Texture {
   explicit Texture();
   explicit Texture(GLenum, string);
   virtual ~Texture();
+  void setSampler(Sampler);
   void active(GLint);
 
   GLuint id;
   GLenum type;
   GLuint unit;
-  Sampler sampler;
 };
 
 #endif

@@ -14,6 +14,7 @@ class Sampler {
   void setParameterf(GLenum, GLfloat);
 
   GLuint id;
+  GLint unit;
 };
 
 #endif

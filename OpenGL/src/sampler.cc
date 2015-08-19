@@ -7,9 +7,9 @@ Sampler::Sampler()
   : id(-1) {
 }
 
-Sampler::Sampler(GLuint texture_unit) {
+Sampler::Sampler(GLuint texture_unit)
+  : unit(texture_unit) {
   glGenSamplers(1, &id);
-  glBindSampler(texture_unit, id);
 }
 
 Sampler::~Sampler() {
